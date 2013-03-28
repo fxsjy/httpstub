@@ -7,7 +7,7 @@ A simple high performance http server
 * based on epoll
 
 
-usage:  httpstub -p <port> -f <data file> -d <delay (ms)> [-q quiet]
+`usage:  httpstub -p <port> -f <data file> -d <delay (ms)> [-q quiet]`
 
 
 Performance
