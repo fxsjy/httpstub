@@ -18,14 +18,15 @@ Performance
 * ab -n10000 -c1000 -k: 52000 r/s
 
 * Test Env:
-$grep MemTotal /proc/meminfo
-MemTotal:      8174464 kB
 
-$grep 'model name' /proc/cpuinfo
-model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
-model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
-model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
-model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+  	$grep MemTotal /proc/meminfo
+		MemTotal:      8174464 kB
 
-$uname -a
-Linux ts-rh64-6 2.6.18-308.el5 #1 SMP Fri Jan 27 17:17:51 EST 2012 x86_64 x86_64 x86_64 GNU/Linux
+		$grep 'model name' /proc/cpuinfo
+		model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+		model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+		model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+		model name      :        Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+
+		$uname -a
+		Linux ts-rh64-6 2.6.18-308.el5 #1 SMP Fri Jan 27 17:17:51 EST 2012 x86_64 x86_64 x86_64 GNU/Linux
