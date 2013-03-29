@@ -299,7 +299,6 @@ int main(int argc, char **argv)
 
         while(1){
                 if ((client_fd = accept(listen_fd, (struct sockaddr *)&client_addr, &client_n)) > 0) {
-                        setnonblocking(client_fd);
                         if(write(g_pipe[worker_pointer][1],(char*)&client_fd,4)<0){
                                 perror("failed to write pipe");
                                 exit(1);
@@ -505,7 +504,7 @@ static void * handle_io_loop(void *param)
 
         while (1) {
                 nfds = epoll_wait(my_tdata.myep_fd, events, MAX_EPOLL_FD, 1000);
-                //printf("nfds:%d\n",nfds);
+                //printf("nfds:%d, epoll fd:%d\n",nfds,my_tdata.myep_fd);
                 if(nfds<=0 && 0!=g_shutdown_flag){
                         break;
                 }
@@ -515,6 +514,7 @@ static void * handle_io_loop(void *param)
                                         perror("faild to read pipe");
                                         exit(1);
                                 }       
+				setnonblocking(new_sock_fd);
                                 ev.data.ptr = alloc_io_data(new_sock_fd, (struct sockaddr_in *)NULL);
                                 ev.events = EPOLLIN;
                                 epoll_ctl(my_tdata.myep_fd, EPOLL_CTL_ADD, new_sock_fd, &ev);
