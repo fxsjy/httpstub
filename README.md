@@ -19,7 +19,7 @@ Performance
 
 * Test Env:
 
-  	$grep MemTotal /proc/meminfo
+  		$grep MemTotal /proc/meminfo
 		MemTotal:      8174464 kB
 
 		$grep 'model name' /proc/cpuinfo
