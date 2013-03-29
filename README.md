@@ -14,6 +14,8 @@ Performance
 ===========
 * httpstub -f README.md -q
 
+	with "-q", no debug messages written to "stub.log"
+
 * ab -n10000 -c1000 : 15000 r/s
 * ab -n10000 -c1000 -k: 52000 r/s
 
